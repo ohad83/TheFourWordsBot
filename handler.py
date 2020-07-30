@@ -21,7 +21,7 @@ def handle_message(event, context):
         response = None
         if "גרביל" in message:
             response = "זה לא ארבע גרביל"
-        elif len(re.split(' |_', message)) != 4:
+        elif len([part for part in re.split(r'[_\s]', message) if part]) != 4:
             response = "זה לא ארבע מילים"
         if response:
             data = {
